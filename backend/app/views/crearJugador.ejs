@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="backend/app/public/stylesheets/style.css">
+
+    <script>
+        function error(msg){
+            document.getElementById("error").innerHTML += `${msg}<br>`
+        }
+        function validateForm() {
+            document.getElementById("error").innerHTML = ''
+            let valid = true;
+            let keys = ["id", "name", "birthdate", "nationality", "teamid", "position", "number", "leagueid"]
+            keys.forEach(key => {
+                if (document.getElementById("form")[key].value == "") {
+                    error(`${key} is required`)
+                    valid = false;
+                }
+            })
+            if (true) {
+                document.getElementById("form").submit();
+            }
+        }
+        window.onload = function(){
+            document.getElementById("bidali").addEventListener('click', validateForm)
+        }
+    </script>
+</head>
+
+<body>
+
+<!-- create a form with 3 fields and 3 labels, name, surname and email -->
+<form action="/api/v1/players/add" method="post" id="form">
+    <p>
+        <label for="id">Id:</label>
+        <input type="text" name="id" id="id">
+    </p>
+    <p>
+        <label for="name">Nombre:</label>
+        <input type="text" name="izena" id="name">
+    </p>
+    <p><label for="birthdate">Birthdate:</label>
+        <input type="text" name="birthdate" id="birthdate">
+    </p>
+    <p>
+        <label for="nationality">Nationality:</label>
+        <input type="text" name="nationality" id="nationality">
+    </p>
+    <p>
+        <label for="teamid">Team id:</label>
+        <input type="text" name="teamid" id="teamid">
+    </p>
+    <p>
+        <label for="position">Position:</label>
+        <input type="text" name="position" id="position">
+    </p>
+    <p>
+        <label for="number">Number:</label>
+        <input type="text" name="number" id="number">
+    </p>
+    <p>
+        <label for="leagueid">League id:</label>
+        <input type="text" name="leagueid" id="leagueid">
+    </p>
+
+    <td>
+        <a href="http://caroescano.eus/api/v1/players/">Volver atras</a>
+    </td>
+
+    <input type="button" value="Crear" id="bidali" style="width:100px; height:30px">
+
+</form>
+
+<div id="error"></div>
+
+</body>
+</html>

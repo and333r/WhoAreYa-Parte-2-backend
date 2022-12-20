@@ -1,0 +1,38 @@
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+</html>
+
+<form style="text-align: center">
+    <a href="http://caroescano.eus/api/v1/players/login">Log Out</a>
+</form>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Birthdate</th>
+        <th>Nationality</th>
+        <th>Team id</th>
+        <th>Position</th>
+        <th>Number</th>
+        <th>League id</th>
+    </tr>
+    </thead>
+    <% elements.forEach( element => { %>
+        <tr>
+            <td> <%= element.id %></td>
+            <td> <%= element.name %></td>
+            <td> <%= element.birthdate %></td>
+            <td> <%= element.nationality %></td>
+            <td> <%= element.teamId %></td>
+            <td> <%= element.position %></td>
+            <td> <%= element.number %></td>
+            <td> <%= element.leagueId %></td>
+        </tr>
+    <% }) %>
+</table>
+
